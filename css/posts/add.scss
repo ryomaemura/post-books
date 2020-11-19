@@ -1,0 +1,160 @@
+@charset 'UTF-8';
+
+.page-title {
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+#action-plan-add-post-area {
+  padding: 10px;
+  border: 1px solid;
+
+  .nav-tabs {
+    .nav-item {
+      width: 50%;
+      text-align: center;
+    }
+  }
+
+  .tab-content {
+    border: 1px solid #ddd;
+    border-color: transparent #ddd #ddd;
+  }
+}
+
+#add-post-tab1 {
+  padding: 10px;
+
+  .book-search-area {
+    display: flex;
+    margin-bottom: 20px;
+
+    .book-input {
+      width: 85%;
+    }
+
+    .book-search-button {
+      width: 15%;
+    }
+  }
+
+  #add-post-book-gallery {
+    .add-post-book-item {
+      display: flex;
+      margin-bottom: 20px;
+      padding: 10px;
+      height: 300px;
+      border: 1px solid #bbb;
+
+      .add-post-book-item-left {
+        margin-right: 20px;
+        width: 130px;
+        height: 280px;
+
+        .add-post-book-item-check-area {
+          display: flex;
+          margin-bottom: 10px;
+          height: 30px;
+
+          .add-post-book-item-check-box {
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+          }
+
+          p {
+            margin: 0;
+            font-size: 22px;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 240px;
+          object-fit: cover;
+        }
+      }
+
+      .add-post-book-item-right {
+        width: calc(100% - 130px);
+        height: 280px;
+        position: relative;
+        overflow: hidden;
+
+        .google-books-link-button {
+          display: block;
+          width: 120px;
+          height: 40px;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          font-size: 20px;
+          text-align: center;
+          line-height: 40px;
+          background-color: #fff;
+          border: 1px solid #000;
+        }
+      }
+    }
+  }
+}
+
+#add-post-tab2 {
+  padding: 10px;
+
+  form {
+    .form-group {
+      margin-bottom: 30px;
+
+      label,
+      #action-plan-input,
+      #action-plan-text-input {
+        width: 100%;
+      }
+    }
+
+    #action-plan-post-button {
+      display: block;
+      margin: 0 auto 30px;
+      width: 90%;
+      border: 1px solid;
+    }
+  }
+}
+
+@media screen and (min-width: 481px) {
+  #add-post-tab1 {
+    #add-post-book-gallery {
+      .add-post-book-item {
+        .add-post-book-item-left {
+          width: 150px;
+        }
+
+        .add-post-book-item-right {
+          width: calc(100% - 150px);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  #add-post-tab1 {
+    #add-post-book-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .add-post-book-item {
+        width: 49%;
+      }
+    }
+  }
+
+  #add-post-tab2 {
+    form {
+      margin: 0 auto;
+      width: 800px;
+    }
+  }
+}

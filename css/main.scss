@@ -1,0 +1,122 @@
+@charset 'UTF-8';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+}
+
+#alert {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  transform: translateX(-50%);
+  z-index: 1051; // bootstrap modal の数値(1050)の1つ上
+  text-align: center;
+}
+
+header {
+  position: relative;
+  height: 80px;
+  background-color: #000;
+
+  #header-logo {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+  }
+
+  .button-area {
+    position: absolute;
+    right: 5px;
+    top: 21px;
+    width: calc(100% - 85px);
+    height: 59px;
+    text-align: right;
+
+    // main.jsでlogin/logoutを判定しdisplay:block/noneを操作
+    .visible-on-login,
+    .visible-on-logout {
+      display: none;
+      overflow: scroll;
+      white-space: nowrap;
+    }
+  }
+}
+
+#login-modal,
+#sign-up-modal {
+  // display: block;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-right: 0 !important; // bootstrap modal のpadding-right: 15px;を無効化
+  width: 100%;
+  max-width: 700px;
+  height: 500px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+
+  .modal-header {
+    .modal-title,
+    .close-modal-button {
+      text-align: center;
+    }
+
+    .modal-title {
+      margin: 8px 0 0 10%;
+      width: 80%;
+    }
+
+    .close-modal-button {
+      width: 10%;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  }
+
+  form {
+    padding: 10px;
+
+    #login-button,
+    #sign-up-button {
+      width: 100%;
+    }
+  }
+}
+
+// 481px以上の幅で適用されるCSS
+@media screen and (min-width: 481px) {
+  header {
+    .button-area {
+      .visible-on-login,
+      .visible-on-logout {
+        display: none;
+        overflow: visible;
+      }
+    }
+  }
+}
+
+// 960px以上の幅で適用されるCSS
+@media screen and (min-width: 960px) {
+
+}
