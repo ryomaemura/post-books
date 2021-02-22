@@ -49,7 +49,11 @@ const loadActionPlanList = () => {
     nowLoadingMessage.text('');
     const actionPlanData = childSnapshot.val();
     // 書籍一覧画面に書籍データを表示
+<<<<<<< HEAD
     // createActionPlan(actionPlanData);
+=======
+    createActionPlan(actionPlanData);
+>>>>>>> origin/main
   });
 };
 
