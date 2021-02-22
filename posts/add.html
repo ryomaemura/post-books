@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新規投稿 | Post Books</title>
+  <link rel="icon" href="../image/site-icon.jpg">
+
+  <!-- Bootstrap CSS 読み込み -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- main.css 読み込み -->
+  <link rel="stylesheet" href="./../css/main.css" type="text/css">
+
+  <!-- style.css 読み込み -->
+  <link rel="stylesheet" href="./../css/posts/add.css">
+</head>
+<body>
+  <!-- #alert -->
+  <div id="alert" class="alert"></div>
+
+  <!-- header -->
+  <header>
+    <!-- サイトアイコン -->
+    <a id="header-logo" href="../"><img src="../image/site-icon.jpg" alt="site-icon"></a>
+    <!-- .button-area -->
+    <div class="button-area">
+      <!-- ログインしている状態で表示 -->
+      <div class="visible-on-login">
+        <!-- 投稿一覧ボタン -->
+        <a href="./" class="btn btn-light">投稿一覧</a>
+        <!-- 投稿ボタン -->
+        <a href="./add.html" class="btn btn-light">新規投稿</a>
+        <!-- マイページボタン -->
+        <a href="../my-page/" class="btn btn-light" >マイページ</a>
+        <!-- ログアウトボタン -->
+        <button type="button" id="logout-button" class="btn btn-light">ログアウト</button>
+      </div>
+      <!-- ログアウトしている状態で表示 -->
+      <div class="visible-on-logout">
+        <!-- 投稿一覧ボタン -->
+        <a href="./" class="btn btn-light">投稿一覧</a>
+        <!-- サインアップボタン -->
+        <button type="button" id="sign-up-modal-open-button" class="btn btn-light" data-toggle="modal" data-target="#sign-up-modal">サインアップ</button>
+        <!-- ログインボタン -->
+        <button type="button" id="login-modal-open-button" class="btn btn-light" data-toggle="modal" data-target="#login-modal">ログイン</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h3 class="page-title">アクションプラン新規投稿</h3>
+
+    <!-- #action-plan-add-post-area -->
+    <div id="action-plan-add-post-area">
+      <!-- タブメニュー -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a href="#add-post-tab1" class="nav-link active" data-toggle="tab">書籍選択</a>
+        </li>
+        <li class="nav-item">
+          <a href="#add-post-tab2" class="nav-link" data-toggle="tab">アクションプラン</a>
+        </li>
+      </ul>
+      <!-- /タブメニュー -->
+
+      <!-- タブコンテンツ -->
+      <div class="tab-content">
+        <!-- タブ1 -->
+        <div id="add-post-tab1" class="tab-pane active">
+          <form class="book-search-area">
+            <input id="add-post-book-search-text-input" class="book-input" type="text" placeholder="タイトル、著者名などで検索">
+            <button id="add-post-book-search-button" class="book-search-button" type="submit">検索</button>
+          </form>
+          <!-- 検索結果の書籍を一覧表示 -->
+          <div id="add-post-book-gallery"></div>
+        </div>
+        <!-- タブ2 -->
+        <div id="add-post-tab2" class="tab-pane">
+          <form>
+            <div class="form-group">
+              <label for="action-plan-input">アクションプラン</label>
+              <input id="action-plan-input" type="text" placeholder="Action Plan">
+            </div>
+            <div class="form-group">
+              <label for="action-plan-text-input">補足テキスト</label>
+              <textarea id="action-plan-text-input" rows="4" placeholder="補足テキスト"></textarea>
+            </div>
+            <button id="action-plan-post-button" class="btn btn-light" type="submit">アクションプラン投稿</button>
+          </form>
+        </div>
+      </div>
+      <!-- /タブコンテンツ -->
+    </div>
+  </main>
+
+
+  <!-- Firebase セットアップコード -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyDNZP2aj2sYccNzJm3Sa1m_XAaJ9L19AKo",
+      authDomain: "action-plan-227db.firebaseapp.com",
+      databaseURL: "https://action-plan-227db.firebaseio.com",
+      projectId: "action-plan-227db",
+      storageBucket: "action-plan-227db.appspot.com",
+      messagingSenderId: "515390896657",
+      appId: "1:515390896657:web:8f7555dbde572dcd0acfb0",
+      measurementId: "G-730M770D0M"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+  <!-- /Firebase セットアップコード -->
+
+  <!-- jQuery 読み込み -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <!-- Bootstrap 読み込み -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <!-- main.js 読み込み -->
+  <script src="../js/main.js" charset="UTF-8"></script>
+
+  <!-- script.js 読み込み -->
+  <script src="./../js/posts/add.js" charset="UTF-8"></script>
+</body>
+</html>

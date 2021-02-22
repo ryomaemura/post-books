@@ -1,0 +1,118 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+}
+
+#alert {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1051;
+  text-align: center;
+}
+
+header {
+  position: relative;
+  height: 80px;
+  background-color: #000;
+}
+
+header #header-logo {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+header #header-logo img {
+  width: 60px;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+}
+
+header .button-area {
+  position: absolute;
+  right: 5px;
+  top: 21px;
+  width: calc(100% - 85px);
+  height: 59px;
+  text-align: right;
+}
+
+header .button-area .visible-on-login,
+header .button-area .visible-on-logout {
+  display: none;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+#login-modal,
+#sign-up-modal {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding-right: 0 !important;
+  width: 100%;
+  max-width: 700px;
+  height: 500px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+#login-modal .modal-header .modal-title,
+#login-modal .modal-header .close-modal-button,
+#sign-up-modal .modal-header .modal-title,
+#sign-up-modal .modal-header .close-modal-button {
+  text-align: center;
+}
+
+#login-modal .modal-header .modal-title,
+#sign-up-modal .modal-header .modal-title {
+  margin: 8px 0 0 10%;
+  width: 80%;
+}
+
+#login-modal .modal-header .close-modal-button,
+#sign-up-modal .modal-header .close-modal-button {
+  width: 10%;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#login-modal form,
+#sign-up-modal form {
+  padding: 10px;
+}
+
+#login-modal form #login-button,
+#login-modal form #sign-up-button,
+#sign-up-modal form #login-button,
+#sign-up-modal form #sign-up-button {
+  width: 100%;
+}
+
+@media screen and (min-width: 481px) {
+  header .button-area .visible-on-login,
+  header .button-area .visible-on-logout {
+    display: none;
+    overflow: visible;
+  }
+}
+/*# sourceMappingURL=main.css.map */
